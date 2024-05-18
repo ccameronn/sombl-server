@@ -15,12 +15,18 @@ module.exports = {
       charset: "utf8",
     },
 
-    production: {
-      client: "mysql2",
-      connection: {
-        connectionString: process.env.JAWSDB_URL,
-      },
+    migrations: {
+      directory: "./DBSetup/migrations",
     },
+    seeds: {
+      directory: "./DBSetup/seeds",
+    },
+  },
+
+  production: {
+    client: "mysql2",
+    connection: process.env.JAWSDB_URL,
+
     migrations: {
       directory: "./DBSetup/migrations",
     },
