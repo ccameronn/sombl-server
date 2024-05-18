@@ -1,0 +1,80 @@
+/**
+ * @param { import("knex").Knex } knex
+ * @returns { Promise<void> }
+ */
+exports.seed = async function (knex) {
+  // Deletes ALL existing entries
+  await knex("groups").del();
+  await knex("groups").insert([
+    // {
+    //   gig: false,
+    //   id: 1,
+    //   group_id: 4,
+    //   title: "Band Practice",
+    //   start_time: "2024-03-30 19:00:00",
+    //   end_time: "2024-03-30 21:00:00",
+    //   month: 3,
+    //   street_name: "Vauxhall Gardens Community Hall",
+    //   postcode: "SW8 1EE",
+    //   organiser: "Cameron Browne",
+    //   created_at: "2024-01-30 10:00:00",
+    //   notes: "Text...",
+    // },
+    // {
+    //   gig: false,
+    //   id: 2,
+    //   group_id: 4,
+    //   title: "Band Practice",
+    //   start_time: "2024-04-05 19:00:00",
+    //   end_time: "2024-04-05 21:00:00",
+    //   month: 4,
+    //   street_name: "Vauxhall Gardens Community Hall",
+    //   postcode: "SW8 1EE",
+    //   organiser: "Cameron Browne",
+    //   created_at: "2024-01-30 10:00:00",
+    //   notes: "Text...",
+    // },
+    // {
+    //   gig: false,
+    //   id: 3,
+    //   group_id: 4,
+    //   title: "Band Practice",
+    //   start_time: "2024-04-15 19:00:00",
+    //   end_time: "2024-04-15 21:00:00",
+    //   month: 4,
+    //   street_name: "Vauxhall Gardens Community Hall",
+    //   postcode: "SW8 1EE",
+    //   organiser: "Cameron Browne",
+    //   created_at: "2024-01-30 10:00:00",
+    //   notes: "Text...",
+    // },
+    // {
+    //   gig: false,
+    //   id: 4,
+    //   group_id: 4,
+    //   title: "Band Practice",
+    //   start_time: "2024-04-20 19:00:00",
+    //   end_time: "2024-04-20 21:00:00",
+    //   month: 4,
+    //   street_name: "Vauxhall Gardens Community Hall",
+    //   postcode: "SW8 1EE",
+    //   organiser: "Cameron Browne",
+    //   created_at: "2024-01-30 10:00:00",
+    //   notes: "Text...",
+    // },
+    // {
+    //   gig: false,
+    //   id: 5,
+    //   group_id: 4,
+    //   title: "Jam",
+    //   start_time: "2024-04-20 19:00:00",
+    //   end_time: "2024-04-20 21:00:00",
+    //   month: 4,
+    //   street_name: "Royal Opera House",
+    //   postcode: "N3 3AB",
+    //   organiser: "Cameron Browne",
+    //   created_at: "2024-01-30 10:00:00",
+    //   notes: "Text...",
+    // },
+  ]);
+};
