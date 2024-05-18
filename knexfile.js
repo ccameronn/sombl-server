@@ -20,7 +20,7 @@ module.exports = {
       connection: {
         connectionString: process.env.JAWSDB_URL,
       },
-
+    },
     migrations: {
       directory: "./DBSetup/migrations",
     },
