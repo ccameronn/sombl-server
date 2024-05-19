@@ -6,25 +6,22 @@ exports.up = function (knex) {
   console.log("Running migration: create_events_table");
   return knex.schema.createTable("events", (table) => {
     table.boolean("gig").notNullable();
-    table.increments("id").primary();
+    table.string("id").primary();
     table
-      .integer("group_id")
-      .unsigned()
+      .string("group_id")
       .references("groups.id")
       .onUpdate("CASCADE")
       .onDelete("CASCADE");
     table.string("title").notNullable();
-    table.timestamp("start_time").notNullable();
-    table.timestamp("end_time").notNullable();
-    table.integer("month").notNullable();
+    table.string("start_time").notNullable();
+    table.string("end_time").notNullable();
+    table.string("month").notNullable();
     table.string("street_address").notNullable();
     table.string("postcode").notNullable();
     table.string("organiser").notNullable();
     table.string("notes").notNullable();
-    table.timestamp("created_at").defaultTo(knex.fn.now());
-    table
-      .timestamp("updated_at")
-      .defaultTo(knex.raw("CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"));
+    table.string("created_at").notNullable();
+    table.string("updated_at").notNullable();
   });
 };
 

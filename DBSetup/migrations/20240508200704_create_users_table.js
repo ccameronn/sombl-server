@@ -5,10 +5,9 @@
 exports.up = function (knex) {
   console.log("Running migration: create_users_table");
   return knex.schema.createTable("users", (table) => {
-    table.increments("id").primary();
+    table.string("id").primary();
     table
-      .integer("group_id")
-      .unsigned()
+      .string("group_id")
       .references("groups.id")
       .onUpdate("CASCADE")
       .onDelete("CASCADE");
@@ -16,10 +15,8 @@ exports.up = function (knex) {
     table.string("email").notNullable();
     table.string("password").notNullable();
     table.string("role").defaultTo("manager").notNullable();
-    table.timestamp("created_at").defaultTo(knex.fn.now());
-    table
-      .timestamp("updated_at")
-      .defaultTo(knex.raw("CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"));
+    table.string("created_at").notNullable();
+    table.string("updated_at").notNullable();
   });
 };
 
