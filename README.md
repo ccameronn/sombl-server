@@ -1,4 +1,4 @@
-# Instock-BackEnd
+# sombl-server
 
 ## Running the backend
 
@@ -22,13 +22,13 @@ npm run dev
 mysql -u root -p
 ```
 
-2. Create a database called "instockDatabase"
+2. Create a database called "sombldatabase"
 
 ```
-CREATE DATABASE instockDatabase;
+CREATE DATABASE sombldatabase;
 ```
 
-3. Show databases and confirm "instockDatabase" has been created
+3. Show databases and confirm "sombldatabase" has been created
 
 ```
 SHOW DATABASES;
@@ -37,19 +37,19 @@ SHOW DATABASES;
 4. Clone the backend repository if you haven't already
 
 ```
-git clone git@github.com:DavideSchirru17/Instock-BackEnd.git
+git clone git@github.com:ccameronn/sombl-server.git
 ```
 
 5. Navigate to backend repository
 
 ```
-cd Instock-BackEnd
+cd sombl-server
 ```
 
-6. Navigate to the develop branch
+6. Navigate to the main branch
 
 ```
-git checkout develop
+git checkout main
 ```
 
 7. Install node modules
@@ -64,15 +64,15 @@ npm install
 cp .env-sample .env
 ```
 
-9. Substitute the example password with your mysql password (you would have used this password in step 1)
+9. Substitute the example password with your mysql password
 
-10. Run the migrations (this creates the tables)
+10. Run the migrations (to creates the tables)
 
 ```
 npm run db:migrate
 ```
 
-11. Run the seeds (this populates the newly created tables with seed data)
+11. Run the seeds (to populate the newly created tables with seed data)
 
 ```
 npm run db:seed

@@ -3,6 +3,8 @@
  * @returns { Promise<void> }
  */
 exports.up = function (knex) {
+  console.log("Running migration: create_groups_table");
+
   return knex.schema.createTable("groups", (table) => {
     table.increments("id").primary();
     table.string("name").notNullable();

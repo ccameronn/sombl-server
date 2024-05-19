@@ -3,6 +3,7 @@
  * @returns { Promise<void> }
  */
 exports.up = function (knex) {
+  console.log("Running migration: create_events_table");
   return knex.schema.createTable("events", (table) => {
     table.boolean("gig").notNullable();
     table.increments("id").primary();
