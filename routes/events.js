@@ -20,6 +20,7 @@ router.get("/", async (req, res) => {
       "start_time",
       "end_time",
       "month",
+      "year",
       "street_address",
       "postcode",
       "organiser",
@@ -35,9 +36,10 @@ router.get("/", async (req, res) => {
 });
 
 // GET EVENTS FOR A GIVEN GROUP FOR A GIVEN MONTH
-router.get("/:groupId/:month", async (req, res) => {
+router.get("/:groupId/:month/:year", async (req, res) => {
   const groupId = req.params.groupId;
   const month = req.params.month;
+  const year = req.params.year;
 
   if (!isValidId(groupId)) {
     return res
@@ -54,6 +56,7 @@ router.get("/:groupId/:month", async (req, res) => {
         "start_time",
         "end_time",
         "month",
+        "year",
         "street_address",
         "postcode",
         "organiser",
@@ -61,12 +64,7 @@ router.get("/:groupId/:month", async (req, res) => {
         "created_at",
         "updated_at"
       )
-      .where({ group_id: groupId, month: month });
-    if (eventsInMonth.length == 0) {
-      return res.status(200).json({
-        message: `Your group doesn't have anything planned this month`,
-      });
-    }
+      .where({ group_id: groupId, month: month, year: year });
     return res.status(200).json(eventsInMonth);
   } catch (er) {
     console.log(
@@ -96,6 +94,7 @@ router.get("/:id", async (req, res) => {
         "start_time",
         "end_time",
         "month",
+        "year",
         "street_address",
         "postcode",
         "organiser",
@@ -129,6 +128,7 @@ let eventSchema = object({
   start_time: string().required(),
   end_time: string().required(),
   month: string().required(),
+  year: string().required(),
   street_address: string().required(),
   postcode: string().required(),
   organiser: string().required(),
@@ -147,6 +147,7 @@ router.post("/", async (req, res) => {
       start_time,
       end_time,
       month,
+      year,
       street_address,
       postcode,
       organiser,
@@ -184,6 +185,7 @@ router.post("/", async (req, res) => {
       start_time,
       end_time,
       month,
+      year,
       street_address,
       postcode,
       organiser,
