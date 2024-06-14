@@ -79,11 +79,6 @@ router.get("/:groupId/:month/:year", async (req, res) => {
 router.get("/:id", async (req, res) => {
   const eventId = req.params.id;
 
-  if (!isValidId(eventId)) {
-    return res
-      .status(400)
-      .json({ message: "EVENT ID parameter must be a valid number" });
-  }
   try {
     const event = await knex("events")
       .select(
